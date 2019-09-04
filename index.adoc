@@ -157,7 +157,7 @@
 = Valimail RESTful API and Event Scheme Guidelines
 Valimail
 
-image::assets/api-zalando-small.jpg[API Guild Logo]
+image::assets/logo.png[API Guild Logo]
 
 Other formats: link:valimail-guidelines.pdf[PDF], link:valimail-guidelines.epub[EPUB3]
 
