@@ -1,4 +1,5 @@
 = Developing Restful APIs: A Comprehensive Set of Guidelines by ValiMail
+== Based on https://github.com/zalando/restful-api-guidelines
 
 https://travis-ci.org/ValiMail/restful-api-guidelines[image:https://travis-ci.org/valimail/restful-api-guidelines.svg?branch=master[Build Status]]
 Latest published version:
