@@ -1,5 +1,6 @@
 = Developing Restful APIs: A Comprehensive Set of Guidelines by ValiMail
-= Based on https://github.com/zalando/restful-api-guidelines
+
+
 
 https://travis-ci.org/ValiMail/restful-api-guidelines[image:https://travis-ci.org/valimail/restful-api-guidelines.svg?branch=master[Build Status]]
 Latest published version:
@@ -8,6 +9,7 @@ http://valimail.github.io/restful-api-guidelines/valimail-guidelines.pdf[*PDF*],
 http://valimail.github.io/restful-api-guidelines/valimail-guidelines.epub[*EPUB3*]
 
 == Purpose
+== Based on https://github.com/zalando/restful-api-guidelines
 
 Great RESTful APIs look like they were designed by a single team. This
 promotes API adoption, reduces friction, and enables clients to use them
