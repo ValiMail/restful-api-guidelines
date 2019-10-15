@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script generates a JSON with information about the guideline rules.
 
-build_dir=${1:-output}
+build_dir=${1:-docs}
 
 cat chapters/*.adoc | \
 	awk '
