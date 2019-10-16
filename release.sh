@@ -12,7 +12,7 @@ if [ "$tag_count" -gt "$release_count" ]
 	echo "releasing...."
     ./build.sh
     latest_tag=$(git describe --abbrev=0 --tags)
-	cp -r docs releases/$latest_tag
+	cp -r output releases/$latest_tag
 	rm releases/current
 	cd releases
 	ln -s $latest_tag current
