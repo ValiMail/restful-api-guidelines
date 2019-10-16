@@ -8,12 +8,9 @@ do
   git checkout tags/$t
   ./build.sh
   latest_tag=$(git describe --abbrev=0 --tags)
-  $(pwd)
   cp -r output releases/$latest_tag
-  cd releases
-  rm current
-  ln -s $latest_tag current
-  cd ..
+  # shell out to create the symbolic link
+  (cd releases && rm current && ln -s $latest_tag current)
   # clean the build output
   rm -rf output
   git checkout master
