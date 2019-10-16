@@ -2,6 +2,7 @@
 
 set -ex
 echo $(pwd)
+ls -R
 mkdir -p releases
 tags=$(git tag)
 for t in $tags
