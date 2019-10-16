@@ -8,10 +8,12 @@ do
   git checkout tags/$t
   ./build.sh
   latest_tag=$(git describe --abbrev=0 --tags)
+  $(pwd)
   cp -r output releases/$latest_tag
-  rm releases/current
   cd releases
+  rm current
   ln -s $latest_tag current
+  cd ..
   # clean the build output
   rm -rf output
   git checkout master
