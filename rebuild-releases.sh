@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -ex
 mkdir -p releases
 tags=$(git tag)
 for t in $tags
