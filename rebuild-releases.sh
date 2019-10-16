@@ -9,7 +9,7 @@ do
   ./build.sh
   cp -r output releases/$t
   # shell out to create the symbolic link
-  (cd releases && rm current && ln -s $t current)
+  (cd releases && rm -f current && ln -s $t current)
   git checkout master
   # clean the build output
   rm -rf output
