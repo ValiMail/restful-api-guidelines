@@ -6,4 +6,5 @@ services:
     ports:
       - '80:8080'
     volumes:
-      - ./docs:/app
+      - ./nginx/conf/nginx.conf:/opt/bitnami/nginx/conf/nginx.conf
+      - ./releases:/app
