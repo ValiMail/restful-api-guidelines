@@ -146,19 +146,6 @@ The _Flow-ID_ must be passed through:
 It must be an random unique string consisting of maximal 128 chars, restricted
 to the character set `[a-zA-Z0-9/+]` (Base64). 
 
-*Note:* If a legacy subsystem can only process _Flow-IDs_ with a specific
-format or length, it must define this restrictions in its API specification,
-and be generous and remove invalid characters or cut the length to the
-supported limit.
-
-*Hint:* In case distributed tracing is supported by {SRE-Tracing}[OpenTracing
-(internal link)] you should ensure that created _spans_ are tagged using
-`flow_id` — see
-{SRE-Tracing}/blob/master/wg-semantic-conventions/best-practices/flowid.md[How
-to Connect Log Output with OpenTracing Using Flow-IDs (internal link)] or
-{SRE-Tracing}/blob/master/wg-semantic-conventions/best-practices.md[Best
-practises (internal link)].
-
 *Service Guidance*
 
 * Services *must* support _Flow-ID_ as generic input, i.e.
