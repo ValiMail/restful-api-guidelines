@@ -1380,7 +1380,7 @@ a > code { background-color: #f0f0f0; padding: .1em .4em .1em .4em !important; f
 <li><a href="#json-guidelines">8. JSON Guidelines</a>
 <ul class="sectlevel2">
 <li><a href="#118"><span class="must-keyword"><strong>Must</strong></span>: Property names must be ASCII snake_case (and never camelCase): <code>^[a-z_][a-z_0-9]*$</code></a></li>
-<li><a href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additionalProperties</code></a></li>
+<li><a href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additional_properties</code></a></li>
 <li><a href="#120"><span class="should-keyword"><strong>Should</strong></span>: Array names should be pluralized</a></li>
 <li><a href="#122"><span class="must-keyword"><strong>Must</strong></span>: Boolean property values must not be null</a></li>
 <li><a href="#123"><span class="should-keyword"><strong>Should</strong></span>: Null values should have their fields removed</a></li>
@@ -1523,7 +1523,7 @@ a > code { background-color: #f0f0f0; padding: .1em .4em .1em .4em !important; f
 <li><a href="#207"><span class="must-keyword"><strong>Must</strong></span>: Indicate ownership of Event Types</a></li>
 <li><a href="#208"><span class="must-keyword"><strong>Must</strong></span>: Define Event Payloads in accordance with the overall Guidelines</a></li>
 <li><a href="#209"><span class="must-keyword"><strong>Must</strong></span>: Maintain backwards compatibility for Events</a></li>
-<li><a href="#210"><span class="should-keyword"><strong>Should</strong></span>: Avoid <code>additionalProperties</code> in event type definitions</a></li>
+<li><a href="#210"><span class="should-keyword"><strong>Should</strong></span>: Avoid <code>additional_properties</code> in event type definitions</a></li>
 <li><a href="#211"><span class="must-keyword"><strong>Must</strong></span>: Use unique Event identifiers</a></li>
 <li><a href="#212"><span class="should-keyword"><strong>Should</strong></span>: Design for idempotent out-of-order processing</a></li>
 <li><a href="#213"><span class="must-keyword"><strong>Must</strong></span>: Follow Naming Convention for Event Type Names</a></li>
@@ -2604,7 +2604,7 @@ to easily extend your response and e.g. add pagination later, without breaking
 backwards compatibility.</p>
 </div>
 <div class="paragraph">
-<p>Maps (see <a href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additionalProperties</code></a>), even though technically objects, are also forbidden as top
+<p>Maps (see <a href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additional_properties</code></a>), even though technically objects, are also forbidden as top
 level data structures, since they don&#8217;t support compatible, future extensions.</p>
 </div>
 </div>
@@ -2613,21 +2613,21 @@ level data structures, since they don&#8217;t support compatible, future extensi
 <div class="paragraph">
 <p>The Open API 2.0 specification is not very specific on default
 extensibility of objects, and redefines JSON-Schema keywords related to
-extensibility, like <code>additionalProperties</code>. Following our overall
+extensibility, like <code>additional_properties</code>. Following our overall
 compatibility guidelines, Open API object definitions are considered
 open for extension by default as per
 <a href="http://json-schema.org/latest/json-schema-validation.html#rfc.section.5.18">Section
-5.18 "additionalProperties"</a> of JSON-Schema.</p>
+5.18 "additional_properties"</a> of JSON-Schema.</p>
 </div>
 <div class="paragraph">
-<p>When it comes to Open API 2.0, this means an <code>additionalProperties</code> declaration
+<p>When it comes to Open API 2.0, this means an <code>additional_properties</code> declaration
 is not required to make an object definition extensible:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>API clients consuming data must not assume that objects are closed for
-extension in the absence of an <code>additionalProperties</code> declaration and must
+extension in the absence of an <code>additional_properties</code> declaration and must
 ignore fields sent by the server they cannot process. This allows API
 servers to evolve their data formats.</p>
 </li>
@@ -2642,13 +2642,13 @@ document clearly how unexpected fields are handled for <a href="#put"><code>PUT<
 </ul>
 </div>
 <div class="paragraph">
-<p>API formats must not declare <code>additionalProperties</code> to be false, as this
+<p>API formats must not declare <code>additional_properties</code> to be false, as this
 prevents objects being extended in the future.</p>
 </div>
 <div class="paragraph">
 <p>Note that this guideline concentrates on default extensibility and does not
-exclude the use of <code>additionalProperties</code> with a schema as a value, which might
-be appropriate in some circumstances, e.g. see <a href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additionalProperties</code></a>.</p>
+exclude the use of <code>additional_properties</code> with a schema as a value, which might
+be appropriate in some circumstances, e.g. see <a href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additional_properties</code></a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2932,13 +2932,13 @@ as if it came from the same hand.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="216"><a class="link" href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additionalProperties</code></a></h3>
+<h3 id="216"><a class="link" href="#216"><span class="should-keyword"><strong>Should</strong></span>: Define Maps Using <code>additional_properties</code></a></h3>
 <div class="paragraph">
 <p>A "map" here is a mapping from string keys to some other type.
 In JSON this is represented as an object, the key-value pairs being represented
 by property names and property values.
 In OpenAPI schema (as well as in JSON schema) they should be represented using
-additionalProperties with a schema defining the value type. Such an object should normally
+additional_properties with a schema defining the value type. Such an object should normally
 have no other defined properties.</p>
 </div>
 <div class="paragraph">
@@ -2966,7 +2966,7 @@ of the map object&#8217;s schema.</p>
             <span class="error">The translations of this message into several languages.</span>
             <span class="error">The keys are [IETF BCP-47 language tags](https://tools.ietf.org/html/bcp47).</span>
           <span class="key">type</span>: <span class="string"><span class="content">object</span></span>
-          <span class="key">additionalProperties</span>:
+          <span class="key">additional_properties</span>:
             <span class="key">type</span>: <span class="string"><span class="content">string</span></span>
             <span class="key">description</span>:
               <span class="error">the translation of this message into the language identified by the key.</span></code></pre>
@@ -6457,21 +6457,6 @@ APIs or asynchronously via published events).</p>
 to the character set <code>[a-zA-Z0-9/+]</code> (Base64).</p>
 </div>
 <div class="paragraph">
-<p><strong>Note:</strong> If a legacy subsystem can only process <em>Flow-IDs</em> with a specific
-format or length, it must define this restrictions in its API specification,
-and be generous and remove invalid characters or cut the length to the
-supported limit.</p>
-</div>
-<div class="paragraph">
-<p><strong>Hint:</strong> In case distributed tracing is supported by <a href="https://github.bus.zalan.do/SRE/opentracing">OpenTracing
-(internal link)</a> you should ensure that created <em>spans</em> are tagged using
-<code>flow_id</code> — see
-<a href="https://github.bus.zalan.do/SRE/opentracing/blob/master/wg-semantic-conventions/best-practices/flowid.md">How
-to Connect Log Output with OpenTracing Using Flow-IDs (internal link)</a> or
-<a href="https://github.bus.zalan.do/SRE/opentracing/blob/master/wg-semantic-conventions/best-practices.md">Best
-practises (internal link)</a>.</p>
-</div>
-<div class="paragraph">
 <p><strong>Service Guidance</strong></p>
 </div>
 <div class="ulist">
@@ -6676,9 +6661,9 @@ keywords, the following properties <strong>must not</strong> be used in event sc
 <div class="ulist">
 <ul>
 <li>
-<p><code>additionalProperties</code>: For event types that declare compatibility
+<p><code>additional_properties</code>: For event types that declare compatibility
 guarantees, there are recommended constraints around the use of this
-field. See the guideline <a href="#210"><span class="should-keyword"><strong>Should</strong></span>: Avoid <code>additionalProperties</code> in event type definitions</a> for details.</p>
+field. See the guideline <a href="#210"><span class="should-keyword"><strong>Should</strong></span>: Avoid <code>additional_properties</code> in event type definitions</a> for details.</p>
 </li>
 </ul>
 </div>
@@ -7580,9 +7565,9 @@ is not available in JSON Schema)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="210"><a class="link" href="#210"><span class="should-keyword"><strong>Should</strong></span>: Avoid <code>additionalProperties</code> in event type definitions</a></h3>
+<h3 id="210"><a class="link" href="#210"><span class="should-keyword"><strong>Should</strong></span>: Avoid <code>additional_properties</code> in event type definitions</a></h3>
 <div class="paragraph">
-<p>Event type schema should avoid using <code>additionalProperties</code>
+<p>Event type schema should avoid using <code>additional_properties</code>
 declarations, in order to support schema evolution.</p>
 </div>
 <div class="paragraph">
@@ -7598,7 +7583,7 @@ recommend the following to enable event schema evolution:</p>
 <ul>
 <li>
 <p>Publishers who intend to provide compatibility and allow their schemas
-to evolve safely over time <strong>must not</strong> declare an <code>additionalProperties</code>
+to evolve safely over time <strong>must not</strong> declare an <code>additional_properties</code>
 field with a value of <code>true</code> (i.e., a wildcard extension point). Instead
 they must define new optional fields and update their schemas in advance
 of publishing those fields.</p>
@@ -7618,7 +7603,7 @@ allowed, only that the new schema for an event type must define the
 field first before it is published within an event. By the same turn the
 consumer must ignore fields it does not know about from its copy of the
 schema, just as they would as an API client - that is, they cannot treat
-the absence of an <code>additionalProperties</code> field as though the event type
+the absence of an <code>additional_properties</code> field as though the event type
 schema was closed for extension.</p>
 </div>
 <div class="paragraph">
@@ -7626,11 +7611,11 @@ schema was closed for extension.</p>
 avoids the problem of <em>field redefinition</em>. This is when a publisher
 defines a field to be of a different type that was already being
 emitted, or, is changing the type of an undefined field. Both of these
-are prevented by not using <code>additionalProperties</code>.</p>
+are prevented by not using <code>additional_properties</code>.</p>
 </div>
 <div class="paragraph">
 <p>See also rule <a href="#111"><span class="must-keyword"><strong>Must</strong></span>: Treat Open API Definitions As Open For Extension By Default</a> in the <a href="#compatibility">Compatibility</a> section for further guidelines
-on the use of <code>additionalProperties</code>.</p>
+on the use of <code>additional_properties</code>.</p>
 </div>
 </div>
 <div class="sect2">
