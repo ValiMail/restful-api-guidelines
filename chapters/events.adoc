@@ -76,7 +76,7 @@ keywords, the following properties *must not* be used in event schemas:
 
 On the other side Schema Object _redefines_ some JSON Schema keywords:
 
-* `additionalProperties`: For event types that declare compatibility
+* `additional_properties`: For event types that declare compatibility
 guarantees, there are recommended constraints around the use of this
 field. See the guideline <<210>> for details.
 
@@ -761,9 +761,9 @@ field (also known as a co-occurrence constraint).
 is not available in JSON Schema)
 
 [#210]
-== {SHOULD} Avoid `additionalProperties` in event type definitions
+== {SHOULD} Avoid `additional_properties` in event type definitions
 
-Event type schema should avoid using `additionalProperties`
+Event type schema should avoid using `additional_properties`
 declarations, in order to support schema evolution.
 
 Events are often intermediated by publish/subscribe systems and are
@@ -775,7 +775,7 @@ important and regular considerations for event design. The guidelines
 recommend the following to enable event schema evolution:
 
 * Publishers who intend to provide compatibility and allow their schemas
-to evolve safely over time *must not* declare an `additionalProperties`
+to evolve safely over time *must not* declare an `additional_properties`
 field with a value of `true` (i.e., a wildcard extension point). Instead
 they must define new optional fields and update their schemas in advance
 of publishing those fields.
@@ -790,17 +790,17 @@ allowed, only that the new schema for an event type must define the
 field first before it is published within an event. By the same turn the
 consumer must ignore fields it does not know about from its copy of the
 schema, just as they would as an API client - that is, they cannot treat
-the absence of an `additionalProperties` field as though the event type
+the absence of an `additional_properties` field as though the event type
 schema was closed for extension.
 
 Requiring event publishers to define their fields ahead of publishing
 avoids the problem of _field redefinition_. This is when a publisher
 defines a field to be of a different type that was already being
 emitted, or, is changing the type of an undefined field. Both of these
-are prevented by not using `additionalProperties`.
+are prevented by not using `additional_properties`.
 
 See also rule <<111>> in the <<compatibility>> section for further guidelines 
-on the use of `additionalProperties`.
+on the use of `additional_properties`.
 
 [#211]
 == {MUST} Use unique Event identifiers

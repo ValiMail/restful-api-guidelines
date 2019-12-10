@@ -28,13 +28,13 @@ as if it came from the same hand.
 
 
 [#216]
-== {SHOULD} Define Maps Using `additionalProperties`
+== {SHOULD} Define Maps Using `additional_properties`
 
 A "map" here is a mapping from string keys to some other type.
 In JSON this is represented as an object, the key-value pairs being represented
 by property names and property values.
 In OpenAPI schema (as well as in JSON schema) they should be represented using
-additionalProperties with a schema defining the value type. Such an object should normally
+additional_properties with a schema defining the value type. Such an object should normally
 have no other defined properties.
 
 The map keys don't count as property names in the sense of <<118,rule 118>>, and can
@@ -59,7 +59,7 @@ components:
             The translations of this message into several languages.
             The keys are [IETF BCP-47 language tags](https://tools.ietf.org/html/bcp47).
           type: object
-          additionalProperties:
+          additional_properties:
             type: string
             description:
               the translation of this message into the language identified by the key.

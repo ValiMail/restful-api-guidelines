@@ -148,17 +148,17 @@ level data structures, since they don't support compatible, future extensions.
 
 The Open API 2.0 specification is not very specific on default
 extensibility of objects, and redefines JSON-Schema keywords related to
-extensibility, like `additionalProperties`. Following our overall
+extensibility, like `additional_properties`. Following our overall
 compatibility guidelines, Open API object definitions are considered
 open for extension by default as per
 http://json-schema.org/latest/json-schema-validation.html#rfc.section.5.18[Section
-5.18 "additionalProperties"] of JSON-Schema.
+5.18 "additional_properties"] of JSON-Schema.
 
-When it comes to Open API 2.0, this means an `additionalProperties` declaration
+When it comes to Open API 2.0, this means an `additional_properties` declaration
 is not required to make an object definition extensible:
 
 * API clients consuming data must not assume that objects are closed for
-  extension in the absence of an `additionalProperties` declaration and must
+  extension in the absence of an `additional_properties` declaration and must
   ignore fields sent by the server they cannot process. This allows API
   servers to evolve their data formats.
 * For API servers receiving unexpected data, the situation is slightly
@@ -168,11 +168,11 @@ is not required to make an object definition extensible:
   document clearly how unexpected fields are handled for {PUT}, {POST}, and
   {PATCH} requests.
 
-API formats must not declare `additionalProperties` to be false, as this
+API formats must not declare `additional_properties` to be false, as this
 prevents objects being extended in the future.
 
 Note that this guideline concentrates on default extensibility and does not
-exclude the use of `additionalProperties` with a schema as a value, which might
+exclude the use of `additional_properties` with a schema as a value, which might
 be appropriate in some circumstances, e.g. see <<216>>. 
 
 
